@@ -19,6 +19,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 const app = (0, _express.default)();
 app.use(_apicache.default.middleware('720 minutes'));
+app.use(fucntion(req, res, next) {
+    res.set({
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+      'Access-Control-Allow-Methods': 'GET,POST',
+      'Content-Type': 'application/json; charset=utf-8',
+    })
+  next()
+})
 app.get('/',
 /*#__PURE__*/
 function () {
